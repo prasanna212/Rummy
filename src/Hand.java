@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Hand {
-	private List<Card> cards;
+	protected List<Card> cards;
 	
 	public Hand(){
 		this.cards = new ArrayList<Card>();
@@ -23,6 +23,9 @@ public class Hand {
 		return cards.add(c);
 	}
 	
+	public boolean addCard(int suit, int face){
+		return cards.add(new Card(suit,face));
+	}
 	/**
 	 * removes a card from the Hand
 	 * @param num Position of the card.

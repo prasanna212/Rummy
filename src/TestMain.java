@@ -8,13 +8,13 @@ public class TestMain {
         RummyHand hand=new RummyHand(deck.pick(NO_OF_RUMMY_CARDS));
         
         System.out.println(hand.cards);
-		
+		/*
         hand.sortedcards_value();
 		System.out.println(hand.cards);
 		
 		hand.sortedcards_suit();
 		System.out.println(hand.cards);
-        
+        */
         Card joker = new Card(4,1);
 		System.out.println(hand.evaluateHand(joker));
         

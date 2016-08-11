@@ -18,6 +18,7 @@ public class RummyHand extends Hand {
 		List<Integer> quadrapletFaceValues = getSets(faceValueFrequencies, 4);
 		this.sortedCards_Value();
 		this.sortedCards_Suit();
+		System.out.println(this.cards);
 		List<Card> seq_list = this.Sequence_List();
 		System.out.println(seq_list);
 		return 0;

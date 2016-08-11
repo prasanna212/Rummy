@@ -55,17 +55,32 @@ public class RummyHand extends Hand {
 
 	private HashMap<Integer, Integer> getFaceValueFrequencies() {
 		// TODO Auto-generated method stub
+		HashMap<Integer, HashMap<Integer, Integer>> hmCards = new HashMap<Integer, HashMap<Integer, Integer>>();
 		HashMap<Integer, Integer> faceValueFrequencies = new HashMap<Integer, Integer>();
-
-		int rank;
+		HashMap<Integer, Integer> hm2;
+		int faceValue, suit;
 		for (int i = 0; i < cards.size(); i++) {
-			rank = cards.get(i).getFace();
-			if (faceValueFrequencies.containsKey(rank)) {
-				faceValueFrequencies.put(rank, faceValueFrequencies.get(rank) + 1);
+			suit = cards.get(i).getSuit();
+			faceValue = cards.get(i).getFace();
+			if (hmCards.containsKey(faceValue)) {
+				hm2 = hmCards.get(faceValue);
+				if (hm2.containsKey(suit)) {
+					hm2.put(suit, hm2.get(suit) + 1);
+				} else {
+					hm2.put(suit, 1);
+				}
 			} else {
-				faceValueFrequencies.put(rank, 1);
+				hm2 = new HashMap<Integer, Integer>();
+				hm2.put(suit, 1);
+				hmCards.put(faceValue, hm2);
 			}
 		}
+		
+		for(int face: hmCards.keySet())
+		{
+			faceValueFrequencies.put(face, hmCards.get(face).size());
+		}
+		
 		return faceValueFrequencies;
 	}
 

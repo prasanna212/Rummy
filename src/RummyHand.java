@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -13,19 +14,20 @@ public class RummyHand extends Hand {
 	public int evaluateHand(Card joker) {
 		HashMap<Integer,Integer> faceValueFrequencies = getFaceValueFrequencies();
 		int numberOfSequences;
-		int numberOfTriplets = getSets(faceValueFrequencies,3);
+		List<Integer> tripletFaceValues= getSets(faceValueFrequencies,3);
+		List<Integer> quadrapletFaceValues= getSets(faceValueFrequencies,4);
 		return 0;
 	}
 
-	private int getSets(HashMap<Integer, Integer> valueFrequency, int frequency) {
+	private List<Integer> getSets(HashMap<Integer, Integer> valueFrequency, int frequency) {
 		// TODO Auto-generated method stub
-		int count = 0;
+		List<Integer> setFaceValues = new ArrayList<Integer>();
 		for(int value:valueFrequency.keySet())
 		{
 			if(valueFrequency.get(value) == frequency)
-				count++;
+				setFaceValues.add(value);
 		}
-		return count;
+		return setFaceValues;
 	}
 
 	private HashMap<Integer, Integer> getFaceValueFrequencies() {

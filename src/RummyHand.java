@@ -1,29 +1,21 @@
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class RummyHand {
+public class RummyHand extends Hand {
 	
-	private Deck deck;
-	private Hand hand;
-	final int NO_CARDS_RUMMY=13;
 	
-	RummyHand()
-	{
-		deck=new Deck(2,2);
-		deck.shuffle();
-		hand=new Hand(deck.pick(NO_CARDS_RUMMY));
-		ArrayList<Card> sortedcards=new ArrayList<>();
-		List<Card> list=hand.cardsInHand();
-		System.out.println(list);
-		sortedcards_value(list);
-		System.out.println(list);
-		sortedcards_suit(list);
-		System.out.println(list);
+	
+	public RummyHand(List<Card> cards) {
+		// TODO Auto-generated constructor stub
+		this.cards = cards;
 	}
 	
-	public List<Card> sortedcards_suit(List<Card> list)
+	public int evaluateHand(Card joker) {
+		return 0;
+	}
+
+	public static List<Card> sortedcards_suit(List<Card> list)
 	{
 	Collections.sort(list,new Comparator<Card>() {
 
@@ -39,7 +31,7 @@ public class RummyHand {
 		return list;
 	}
 	
-	public List<Card> sortedcards_value(List<Card> list)
+	public static List<Card> sortedcards_value(List<Card> list)
 	{
 	Collections.sort(list,new Comparator<Card>() {
 

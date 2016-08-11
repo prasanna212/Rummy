@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class TestMain {
@@ -12,8 +9,12 @@ public class TestMain {
         deck.shuffle();
         RummyHand hand=new RummyHand(deck.pick(NO_OF_RUMMY_CARDS));
         System.out.println(hand.cards);
-        Collections.sort(hand.cards,new MyComparator());
 
+		List<Card> list=hand.cardsInHand();
+		System.out.println(hand.cards);
+		System.out.println(RummyHand.sortedcards_value(list));
+		System.out.println(RummyHand.sortedcards_suit(list));
+        
         Card joker = new Card(4,1);
 		System.out.println(hand.evaluateHand(joker));
         
